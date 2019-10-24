@@ -1,10 +1,14 @@
 'use strict'
 
 const Git = require("nodegit");
-Git.Repository.init('.', 0)
 const GitSignature = Git.Signature.create('Node app', 'node@node.app',
     new Date().getTime(),
     new Date().getTimezoneOffset())
+Git.Repository.init('.', 0).then(function (repo) { 
+    Git.Repository.open('.').then(function (repo) {
+        repo.createCommitOnHead(['Prevodi.yaml'], GitSignature, GitSignature, 'Updated at' + new Date().toISOString())
+    })
+})
 const fs = require('fs')
 const YAML = require('yaml')
 const yaml_file = fs.readFileSync('./Prevodi.yaml', 'utf8')
