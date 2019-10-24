@@ -1,0 +1,106 @@
+GENDER__SAFESIZE:
+  langs:
+    EN:
+      short: "Gender"
+      long: "Gender"
+    DE:
+      short: "Geschlecht"
+      long: "Geschlecht"
+    NL:
+      short: "Geslacht"
+      long: "Geslacht"
+    SL:
+      short: "Spol"
+      long: "Spol"
+  values:
+
+    "U":
+      langs:
+        EN:
+          short: "Unisex"
+          long: "Unisex"
+        DE:
+          short: "Unisex"
+          long: "Unisex"
+        NL:
+          short: "Unisex"
+          long: "Unisex"
+        SL:
+          short: "Unisex"
+          long: "Unisex"
+    "M":
+      langs:
+        EN:
+          short: "Male"
+          long: "Male"
+        DE:
+          short: "Männlich"
+          long: "Männlich"
+        NL:
+          short: "Man"
+          long: "Man"
+        SL:
+          short: "Moški"
+          long: "Moški"
+    "F":
+      langs:
+        EN:
+          short: "Female"
+          long: "Female"
+        DE:
+          short: "Weiblich"
+          long: "Weiblich"
+        NL:
+          short: "Vrouw"
+          long: "Vrouw"
+        SL:
+          short: "Ženska"
+          long: "Ženska"
+
+
+AGE__SAFESIZE:
+  type: "S"
+  value_type: "LOV"
+  langs:
+    EN:
+      short: "Age"
+      long: "Age"
+    DE:
+      short: "Alter"
+      long: "Alter"
+    NL:
+      short: "Leeftijd"
+      long: "Leeftijd"
+    SL:
+      short: "Starost"
+      long: "Starost"
+  values:
+
+    "C":
+      langs:
+        EN:
+          short: "Child"
+          long: "Child"
+        DE:
+          short: "Kind"
+          long: "Kind"
+        NL:
+          short: "Kind"
+          long: "Kind"
+        SL:
+          short: "Otrok"
+          long: "Otrok"
+    "A":
+      langs:
+        EN:
+          short: "Adult"
+          long: "Adult"
+        DE:
+          short: "Erwachsen"
+          long: "Erwachsen"
+        NL:
+          short: "Volwassene"
+          long: "Volwassene"
+        SL:
+          short: "Odrasel"
+          long: "Odrasel"
