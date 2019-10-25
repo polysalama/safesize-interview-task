@@ -34,7 +34,7 @@ exports.addParameterOrValue = async (req, res) => {
         let param_id = req.params.parameterId
         let value_id = req.query.value
         let num_of_query_params = Object.keys(req.query).length
-        if (num_of_query_params == 1 && typeof value_id != 'undefined') {
+        if (num_of_query_params == 1 && typeof value_id != 'undefined' && value_id != '') {
             let [param, value] = Yaml.add_parameter_value(param_id, value_id)
             res.send({ paramter_id: param, value_id: value })
         } else if (num_of_query_params == 0) {
@@ -54,14 +54,14 @@ exports.addTranslation = async (req, res) => {
         let value_id = req.query.value
         let lang_id = req.query.lang
         let num_of_query_params = Object.keys(req.query).length
-        if (num_of_query_params != 0 && typeof lang_id != 'undefined') {
-            if (num_of_query_params == 2 && typeof value_id != 'undefined') {
+        if (num_of_query_params != 0 && typeof lang_id != 'undefined' && lang_id != '') {
+            if (num_of_query_params == 2 && typeof value_id != 'undefined' && value_id != '') {
                 let [param, value] = Yaml.add_value_lang(param_id, value_id, lang_id, req.body)
                 res.send({ paramter_id: param, value_id: value })
                 
             } else if (num_of_query_params == 1) {
-                let [param, value] = Yaml.add_parameter_lang(param_id, lang_id, req.body)
-                res.send({ paramter_id: param, value_id: value })
+                let param = Yaml.add_parameter_lang(param_id, lang_id, req.body)
+                res.send({ paramter_id: param })
             }
         } else {
             res.status(400).send({ message: 'Bad url query.' })
@@ -77,15 +77,15 @@ exports.removeParameterOrValueOrLang = async (req, res) => {
         let value_id = req.query.value
         let lang_id = req.query.lang
         let num_of_query_params = Object.keys(req.query).length
-        if (typeof value_id != 'undefined') {
-            if (num_of_query_params == 2 && typeof lang_id != 'undefined') {
+        if (typeof value_id != 'undefined' && value_id != '') {
+            if (num_of_query_params == 2 && typeof lang_id != 'undefined' && lang_id != '') {
                 let [param, value] = Yaml.remove_value_lang(param_id, value_id, lang_id)
                 res.send({ paramter_id: param, value_id: value })
             } else if (num_of_query_params == 1){
                 let [param, value] = Yaml.remove_value(param_id, value_id)
                 res.send({ paramter_id: param, value_id: value })
             }
-        } else if (num_of_query_params == 1 && typeof lang_id != 'undefined') {
+        } else if (num_of_query_params == 1 && typeof lang_id != 'undefined' && lang_id != '') {
             let param = Yaml.remove_parameter_lang(param_id, lang_id)
             res.send({ parameter_id: param })
         } else if (num_of_query_params == 0) {

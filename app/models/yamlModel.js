@@ -182,9 +182,16 @@ const Yaml = {
         return parameter_id
     },
 
+    check_empty(item) {
+        return Object.keys(item).length == 0
+    },
+
     remove_value(parameter_id, value_id) {
         if (this.value_exists(parameter_id, value_id, true)) {
             delete this.yaml_object[parameter_id]['values'][value_id]
+            if (this.check_empty(this.yaml_object[parameter_id]['values'])) {
+                this.yaml_object[parameter_id]['values'] = ''
+            }
             this.save_to_file()
         }
         return [parameter_id, value_id]
@@ -193,6 +200,9 @@ const Yaml = {
     remove_parameter_lang(parameter_id, lang_id) {
         if (this.parameter_lang_exists(parameter_id, lang_id, true)) {
             delete this.yaml_object[parameter_id]['langs'][lang_id]
+            if (this.check_empty(this.yaml_object[parameter_id]['langs'])) {
+                this.yaml_object[parameter_id]['langs'] = ''
+            }
             this.save_to_file()
         }
         return parameter_id
@@ -201,6 +211,9 @@ const Yaml = {
     remove_value_lang(parameter_id, value_id, lang_id) {
         if (this.value_lang_exists(parameter_id, value_id, lang_id, true)) {
             delete this.yaml_object[parameter_id]['values'][value_id]['langs'][lang_id]
+            if (this.check_empty(this.yaml_object[parameter_id]['values'][value_id]['langs'])) {
+                this.yaml_object[parameter_id]['values'][value_id]['langs'] = ''
+            }
             this.save_to_file()
         }
         return [parameter_id, value_id]

@@ -59,8 +59,6 @@ GENDER__SAFESIZE:
 
 
 AGE__SAFESIZE:
-  type: "S"
-  value_type: "LOV"
   langs:
     EN:
       short: "Age"
