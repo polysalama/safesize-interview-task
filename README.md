@@ -33,7 +33,7 @@ manage-yaml.sh <url:port> removeValueTrans <paramId> <valueIid> <langId>
 ```
 
 ##### JSON Schema for addParamTrans and addValueTrans
-```JSON
+```
 {
     "short:" "<String>",
     "long:" "<String>"  
