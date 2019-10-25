@@ -12,11 +12,11 @@ help="Usage:\n \
     manage-yaml.sh <url:port> addParam <paramId>\n \
     manage-yaml.sh <url:port> addValue <paramId> <valueId>\n \
     manage-yaml.sh <url:port> addParamTrans <paramId> <langId> <JSON>\n \
-    manage-yaml.sh <url:port> addParamTrans <paramId> <valueIid> <langId> <JSON>\n
+    manage-yaml.sh <url:port> addValueTrans <paramId> <valueIid> <langId> <JSON>\n
     manage-yaml.sh <url:port> removeParam <paramId>\n \
     manage-yaml.sh <url:port> removeValue <paramId> <valueId>\n \
     manage-yaml.sh <url:port> removeParamTrans <paramId> <langId>\n \
-    manage-yaml.sh <url:port> removeParamTrans <paramId> <valueIid> <langId>"
+    manage-yaml.sh <url:port> removeValueTrans <paramId> <valueIid> <langId>"
 
 if [ $# -eq 0 ]
 then 

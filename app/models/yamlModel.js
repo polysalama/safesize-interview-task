@@ -1,5 +1,6 @@
 'use strict'
 
+// Sets up git
 const Git = require("nodegit");
 const GitSignature = Git.Signature.create('Node app', 'node@node.app',
     new Date().getTime(),
@@ -9,10 +10,14 @@ Git.Repository.init('.', 0).then(function (repo) {
         repo.createCommitOnHead(['Prevodi.yaml'], GitSignature, GitSignature, 'Updated at' + new Date().toISOString())
     })
 })
+
+// Read file
 const fs = require('fs')
 const YAML = require('yaml')
 const yaml_file = fs.readFileSync('./Prevodi.yaml', 'utf8')
 
+
+// Errors
 class ParameterMissingError extends Error {
     constructor(message) {
         super(message)
@@ -34,9 +39,12 @@ class LanguageMissingError extends Error {
     }
 }
 
+// Holds the parsed yaml file and functions for editing the file
 const Yaml = {
     yaml_object: YAML.parse(yaml_file),
 
+    // Saves the file and commits to git
+    // Called after modifying the file
     save_to_file() {
         if (Object.keys(this.yaml_object).length == 0) {
             fs.writeFileSync('./Prevodi.yaml', '')

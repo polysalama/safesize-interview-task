@@ -2,6 +2,10 @@
 
 const Yaml = require('../models/yamlModel');
 
+// Functions are tied to url endpoints
+// Dependant on the endpoint and url queries
+// different functions are called from yamlModel
+
 exports.getParameters = async (req, res) => {
     try {
         res.send(Yaml.get_parameters())
